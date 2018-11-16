@@ -6,11 +6,11 @@
 <br>
 
 <h2>ML_model:mechine learn model</h2>
-<p>机器学习模型：除深度学习外的项目设计到的其他机器学习算法模型</p>
+<p>机器学习模型：除深度学习外的项目涉及到的其他机器学习算法模型</p>
 <br>
 
 <h2>NN_OR：neural network opinion recognition</h2>
-<p>神经网络意见识别：识别不同类型的解释性意见句。</p>
+<p>神经网络意见识别：识别四种不同类型的解释性意见句。</p>
 <br>
 
 
