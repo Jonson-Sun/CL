@@ -1,7 +1,10 @@
 # CL  and DL
 存放计算语言学CL(自然语言处理NLP)及深度学习DL相关内容
 
----
+<center>![](pict/构建模型.svg)</center>
+<center></center>
+<center></center>
+<center></center>
 
 ## ER：emotion recognition
 情感识别：意见句正面/负面情感分类
@@ -17,3 +20,7 @@
 ### note_algo
 - 算法笔记:《算法导论》... ...
 - 
+
+##其他
+![](pict/映射01.svg)
+
