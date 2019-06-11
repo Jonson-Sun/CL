@@ -1,7 +1,11 @@
 # CL  and DL
 存放计算语言学CL(自然语言处理NLP)及深度学习DL相关内容
 
-<center>![](pict/构建模型.svg)</center>
+<center>
+
+![](pict/构建模型.svg)
+
+</center>
 <center></center>
 <center></center>
 <center></center>
@@ -21,6 +25,7 @@
 - 算法笔记:《算法导论》... ...
 - 
 
-##其他
+## 其他
+
 ![](pict/映射01.svg)
 
