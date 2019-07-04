@@ -1,4 +1,4 @@
-# 本文件包含除深度学习之外的机器学习模型
+# 机器学习模型
 <center>![](机器学习建议.svg)</center>
 
 <center>![](数据处理流程.svg)</center>
@@ -13,4 +13,8 @@
 - 结果：
 	- 多分类结果：0.7115384615384616  ：kernel='rbf'
 
-##
+## sklearn基本用法
+- sklearn.ipynb
+
+## keras神经网络模板
+- NN_model.py
