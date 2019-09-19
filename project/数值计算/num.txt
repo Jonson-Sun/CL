@@ -1,0 +1,97 @@
+2400000000
+2400000000
+
+
+## 3x+1 问题  
+//julia 验证了0~2亿  ; 使用C++ 来验证2亿+  
+//本文件为3x+1_4程序的数值范围 输入[即前两行代码]  
+//不要改本文件名  
+//C++代码如下:  
+
+```C++
+//
+// 
+//		如果是奇数:3x+1
+//		如果是偶数:x/2
+//		结果一定是4,2,1,4,2,1....的循环?
+//
+#include<boost/multiprecision/cpp_int.hpp> 
+#include<boost/lexical_cast.hpp>
+#include<future>    //不要使用C++11的静态编译选项
+using namespace boost::multiprecision;
+
+bool Ulam_quest(cpp_int num)
+{
+	unsigned int i=1;
+	while(num!=1){ //只要出现1就会421循环
+		if(num%2==1){
+			num=3*num+1;
+		}else{
+			num/=2;
+		}
+		//cout<<num<<" ";
+		if(i > 1000000000000){
+			return false;
+		}else{
+			i+=1;
+		}
+	}
+	return true;
+}
+bool control_function(cpp_int start,cpp_int endp)
+{
+	unsigned int count=1;
+	cpp_int tmp=start;
+	for(;start<endp;start++){
+		if(Ulam_quest(start)==false){
+			cout<<"该值循环超过万亿:\n"<<start<<endl;
+			return false;
+		}
+		if( ( (endp-start)%((endp-tmp)/100) ) ==0){//endp 必须大于100否则 溢出
+			cout<<count<<"%"<<endl;
+			count+=1;
+		}
+	}
+	return true;	
+}
+bool file_thread()
+{	
+	cpp_int start=10;
+	cpp_int endp=10;
+	try{
+		vector<string> num_str=readlines("num.txt");
+		cout<<"串向量的大小:"<<num_str.size()<<endl;
+		
+		start=lexical_cast<cpp_int>(num_str[0]);
+		 endp=lexical_cast<cpp_int>(num_str[1]);
+		cout<<"起始值为:"<<start<<endl;
+		cout<<"终止值为:"<<endp<<endl;
+	}catch(...){
+		cout<<"文件读写||string->cpp_int转换出现异常"<<endl;
+		return false;
+	}
+	//bool result=control_function(start,endp);
+	cpp_int diff_val=(endp-start)/4;  //因为本pc为四核
+	
+	auto t1=async(control_function,start,start+diff_val);
+	start+=diff_val;
+	auto t2=async(control_function,start,start+diff_val);
+	start+=diff_val;
+	auto t3=async(control_function,start,start+diff_val);
+	start+=diff_val;
+	auto t4=async(control_function,start,start+diff_val);
+	start+=diff_val;
+	
+	if((t1.get())&&
+	   (t2.get())&&
+	   (t3.get())&&
+	   (t4.get()) ){
+		cout<<"该部分正常."<<endl;
+	}
+	else{
+		cout<<"该部分存在异常!"<<endl;
+	}	
+	if(start!=endp){cout<<"最后测验值:"<<start<<endl;}
+	return true;	
+}
+```
