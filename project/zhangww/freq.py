@@ -1,6 +1,8 @@
 from jieba import cut #分词工具
 
-文件名="张维为"  #数据文件
+#文件名="张维为.txt"  #数据文件名
+文件名="chenping.txt"
+
 频率字典={}
 
 def 读文件(name):
@@ -12,6 +14,8 @@ def cut_freq():
 	行表=读文件(文件名)
 	for 行 in 行表:
 		#print(行)
+		if len(行)<3:
+			continue  #去掉空行
 		词列=[项 for 项 in cut(行)]
 		#print(len(词列))
 		for 词 in 词列:
