@@ -1,5 +1,5 @@
-2400000000
-2500000000
+3600000000
+3700000000
 
 
 ## 3x+1 问题  
@@ -68,6 +68,7 @@ bool file_thread()
 		cout<<"终止值为:"<<endp<<endl;
 	}catch(...){
 		cout<<"文件读写||string->cpp_int转换出现异常"<<endl;
+		//没有考虑文件不存在的情况
 		return false;
 	}
 	//bool result=control_function(start,endp);
